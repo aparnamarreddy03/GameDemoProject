@@ -19,7 +19,7 @@ namespace GameDemoReusableFramework
             var apiHelper = new APIHelper<GameBalanceResponse>();
             var client = apiHelper.SetURL(resouce);
             string payload = apiHelper.Serialize(body);
-            var request = apiHelper.GameBalancePostRequest(payload, correlationId, forwaredFor,clientTypeId);
+            var request = apiHelper.GameBalancePostRequest(payload, correlationId, clientTypeId,forwaredFor);
             var response = apiHelper.GetResponse(client, request);
             Console.WriteLine("Response Content is {0}", response.Content);
            
@@ -46,7 +46,7 @@ namespace GameDemoReusableFramework
         {
             var apiHelper = new APIHelper<PostResponse>();
             var client = apiHelper.SetURL(resouce);
-            var request = apiHelper.CreatePostRequest(payload,coreID,clientID);
+            var request = apiHelper.GameBalancePostRequest(payload,coreID,clientID);
             var response = apiHelper.GetResponse(client, request);
             Console.WriteLine("Response Content is {0}", response.Content);
             var content = apiHelper.GetContent<PostResponse>(response);

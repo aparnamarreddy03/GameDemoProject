@@ -47,7 +47,7 @@ namespace GameAPITests
 
             //Calling Post request for finding Game Balance, returning deserialize data
             var data = test.GameBalancePost(resouce,ClientID,CoreID, forwaredFor,gameBReq);
-          
+         
             // Storing USer token in project settings property and saving it for future use
             GameDemoReusableFramework.Properties.Settings.Default.UserToken = data.Tokens.UserToken[0].ToString();
             GameDemoReusableFramework.Properties.Settings.Default.Save();
