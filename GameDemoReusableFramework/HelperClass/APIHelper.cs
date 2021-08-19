@@ -25,7 +25,7 @@ namespace GameDemoReusableFramework.HelperClass
             return client;
         }
 
-        public RestRequest GameBalancePostRequest(dynamic payload,string coreID,int clientTypeId,string forward = "default")
+        public RestRequest GameBalancePostRequest(dynamic payload,string coreID,int clientTypeId,string forward = "default value")
         {
             var request = new RestRequest(Method.POST);
             if(!string.IsNullOrEmpty(payload))
@@ -35,7 +35,7 @@ namespace GameDemoReusableFramework.HelperClass
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("CorrelationId", coreID);
             request.AddHeader("Clienttypeid", clientTypeId.ToString());
-            if (!forward.Contains("default"))
+            if (!forward.Equals("default value"))
             {
           
                 request.AddHeader("Forwarded-For", forward);
